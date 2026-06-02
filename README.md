@@ -43,7 +43,7 @@ This server registers the following tools to manage task state:
 
 ## 🚀 Setup & Integration
 
-### 1. Registration
+### 1. For Antigravity IDE
 Add the server entry to your custom IDE settings `mcp_config.json`:
 ```json
 {
@@ -58,8 +58,27 @@ Add the server entry to your custom IDE settings `mcp_config.json`:
 }
 ```
 
-### 2. Manual Testing
-You can boot up the dashboard standalone by executing:
+### 2. For Claude Desktop / Claude Code
+To use this custom server with the official Claude Desktop client or Claude Code CLI on Windows, append the configuration inside the global Claude config file located at:
+`%APPDATA%\Claude\claude_desktop_config.json`
+*(e.g., `C:\Users\Mianjee\AppData\Roaming\Claude\claude_desktop_config.json`)*:
+
+```json
+{
+  "mcpServers": {
+    "task-tracker": {
+      "command": "node",
+      "args": [
+        "C:\\Users\\Mianjee\\.gemini\\antigravity-ide\\scratch\\task-tracker-mcp\\index.js"
+      ]
+    }
+  }
+}
+```
+*Note: Claude Code CLI automatically inherits custom MCP tool setups directly from your Claude Desktop settings config on startup!*
+
+### 3. Manual Startup
+You can boot up the dashboard server standalone by executing:
 ```bash
 node index.js
 ```
