@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antigravity Task Flow Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Decorative background elements -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+  <div class="bg-glow bg-glow-3"></div>
+
+  <div class="container">
+    <header class="app-header">
+      <div class="logo-area">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="url(#logo-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="url(#logo-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="url(#logo-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="logo-grad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#8a2be2"/>
+                <stop offset="1" stop-color="#00f5d4"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div>
+          <h1>Antigravity Task Flow</h1>
+          <p class="subtitle">Real-time Task & Work Execution Monitor</p>
+        </div>
+      </div>
+      
+      <div class="header-actions">
+        <div class="connection-badge status-disconnected" id="conn-status">
+          <span class="dot"></span> <span class="status-text">Connecting...</span>
+        </div>
+        <button class="btn btn-secondary" id="clear-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Clear Workspace
+        </button>
+      </div>
+    </header>
+
+    <!-- Stat Dashboard Cards -->
+    <section class="stats-grid">
+      <div class="stat-card glass">
+        <div class="stat-icon icon-purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <span class="stat-label">Active Tasks</span>
+          <span class="stat-value" id="stat-active">0</span>
+        </div>
+      </div>
+
+      <div class="stat-card glass">
+        <div class="stat-icon icon-teal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <span class="stat-label">Completed Tasks</span>
+          <span class="stat-value" id="stat-completed">0</span>
+        </div>
+      </div>
+
+      <div class="stat-card glass">
+        <div class="stat-icon icon-coral">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <span class="stat-label">Speed Factor</span>
+          <span class="stat-value" id="stat-speed">1.0x</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Active Tasks Stream -->
+    <main class="main-content">
+      <div class="content-header">
+        <h2>Running Tasks & Workflows</h2>
+        <div class="pulse-indicator">
+          <span class="pulse-dot"></span> Live updates enabled
+        </div>
+      </div>
+
+      <div class="task-list" id="task-container">
+        <!-- Empty State Placeholder -->
+        <div class="empty-state glass" id="empty-state">
+          <div class="empty-illustration">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>No tasks currently active</h3>
+          <p>Launch a task through Claude/Antigravity using the start_task tool to begin real-time visualization.</p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="app-footer">
+      <p>Antigravity Task Flow MCP Server • Running on port 9886</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

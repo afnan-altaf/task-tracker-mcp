@@ -1,0 +1,18 @@
+{
+  "name": "task-tracker-mcp",
+  "version": "1.0.0",
+  "description": "Custom MCP Server and Real-time dashboard for Antigravity & Claude tasks",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "mcp",
+    "tracker",
+    "dashboard",
+    "antigravity",
+    "claude"
+  ],
+  "author": "Antigravity",
+  "license": "ISC"
+}
